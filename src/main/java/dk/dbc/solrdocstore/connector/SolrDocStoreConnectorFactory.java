@@ -3,7 +3,7 @@
  * See license text in LICENSE.txt or at https://opensource.dbc.dk/licenses/gpl-3.0/
  */
 
-package dk.dbc.solrdocstore;
+package dk.dbc.solrdocstore.connector;
 
 import dk.dbc.httpclient.HttpClient;
 import org.eclipse.microprofile.config.inject.ConfigProperty;

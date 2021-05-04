@@ -17,7 +17,7 @@ Add the dependency to your Maven pom.xml
 In your Java code
 
 ```java
-import dk.dbc.solrdocstore.SolrDocStoreConnector;
+import dk.dbc.solrdocstore.connector.SolrDocStoreConnector;
 import javax.inject.Inject;
 ...
 
