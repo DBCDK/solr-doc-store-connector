@@ -64,7 +64,7 @@ public class SolrDocStoreConnector {
                     .withPathElements("api", "holdings")
                     .withJsonData(holdingsItems)
                     .execute();
-            verifyResponseStatus("setHoldings", response, Response.Status.CREATED, Status.class);
+            verifyResponseStatus("setHoldings", response, Response.Status.OK, Status.class);
             final Status status = readResponseEntity(response, Status.class);
             if (status == null) {
                 LOGGER.warn("setHoldings operation returned null valued status");

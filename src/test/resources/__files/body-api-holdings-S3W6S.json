@@ -1,0 +1,1 @@
+{"ok":false,"text":"Exception thrown from bean: javax.ejb.EJBTransactionRolledbackException: Exception thrown from bean: javax.ejb.EJBException: Cannot find openagency entry for: 12345678"}
