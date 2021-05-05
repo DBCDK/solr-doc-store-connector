@@ -1,0 +1,22 @@
+{
+  "id" : "1383b34e-99df-3860-8d17-f012b98b3e9c",
+  "request" : {
+    "url" : "/api/holdings",
+    "method" : "POST",
+    "bodyPatterns" : [ {
+      "equalToJson" : "{\"bibliographicRecordId\":\"id1\",\"agencyId\":12345678,\"indexKeys\":[{\"k1\":[\"v1\"],\"k2\":[\"v2a\",\"v2b\"]}]}",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 500,
+    "bodyFileName" : "body-api-holdings-S3W6S.json",
+    "headers" : {
+      "Server" : "Payara Micro #badassfish",
+      "Content-Type" : "application/json",
+      "X-Frame-Options" : "SAMEORIGIN"
+    }
+  },
+  "uuid" : "1383b34e-99df-3860-8d17-f012b98b3e9c"
+}

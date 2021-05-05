@@ -1,0 +1,22 @@
+{
+  "id" : "de95827a-0ae7-3c96-be84-f988bdd07727",
+  "request" : {
+    "url" : "/api/holdings",
+    "method" : "POST",
+    "bodyPatterns" : [ {
+      "equalToJson" : "{\"bibliographicRecordId\":\"id2\",\"agencyId\":800010,\"indexKeys\":[{\"k1\":[\"v1\"],\"k2\":[\"v2a\",\"v2b\"]}]}",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 200,
+    "bodyFileName" : "body-api-holdings-gzd6r.json",
+    "headers" : {
+      "Server" : "Payara Micro #badassfish",
+      "Content-Type" : "application/json",
+      "X-Frame-Options" : "SAMEORIGIN"
+    }
+  },
+  "uuid" : "de95827a-0ae7-3c96-be84-f988bdd07727"
+}

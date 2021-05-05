@@ -17,7 +17,7 @@ Add the dependency to your Maven pom.xml
 In your Java code
 
 ```java
-import dk.dbc.solrdocstore.SolrDocStoreConnector;
+import dk.dbc.solrdocstore.connector.SolrDocStoreConnector;
 import javax.inject.Inject;
 ...
 
@@ -26,7 +26,18 @@ import javax.inject.Inject;
 @Inject
 SolrDocStoreConnector connector;
 
-// Todo: Add usage example
+final IndexKeys indexKeys = new IndexKeys();
+indexKeys.put("k1", Collections.singletonList("v1"));
+indexKeys.put("k2", Arrays.asList("v2a", "v2b"));
+final List<IndexKeys> indexKeysList = new ArrayList<>();
+indexKeysList.add(indexKeys);
+
+final HoldingsItems holdingsItems = new HoldingsItems();
+holdingsItems.setAgencyId(12345678);
+holdingsItems.setBibliographicRecordId("id1");
+holdingsItems.setIndexKeys(indexKeysList);
+
+connector.setHoldings(holdingsItems);
 ```
 
 ### License
