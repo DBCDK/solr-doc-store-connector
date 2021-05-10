@@ -21,7 +21,7 @@ public class SolrDocStoreConnectorTestWireMockRecorder {
         SolrDocStoreConnectorTest.solrDocStoreConnector = SolrDocStoreConnectorTest.createConnector(
                 "http://localhost:8080", SolrDocStoreConnectorTest.NO_RETRY_POLICY);
         final SolrDocStoreConnectorTest solrDocStoreConnectorTest = new SolrDocStoreConnectorTest();
-        //recordRequestsForSetHoldings(solrDocStoreConnectorTest);
+        recordRequestsForSetHoldings(solrDocStoreConnectorTest);
         recordRequestsForHoldingExists(solrDocStoreConnectorTest);
     }
 
