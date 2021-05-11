@@ -32,7 +32,7 @@ public class ExistenceResponse {
 
     @Override
     public int hashCode() {
-        return (exists ? 1 : 0);
+        return exists ? 1 : 0;
     }
 
     @Override
