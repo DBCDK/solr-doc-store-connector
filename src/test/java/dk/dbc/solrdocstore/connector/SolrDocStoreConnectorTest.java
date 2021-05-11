@@ -95,6 +95,18 @@ class SolrDocStoreConnectorTest {
         }
     }
 
+    @Test
+    void holdingExists_true() throws SolrDocStoreConnectorException {
+        assertThat(solrDocStoreConnector.holdingExists(800010, "99123304158205763__1"),
+                is(true));
+    }
+
+    @Test
+    void holdingExists_false() throws SolrDocStoreConnectorException {
+        assertThat(solrDocStoreConnector.holdingExists(800010, "99123304158205763__2"),
+                is(false));
+    }
+
     private static <T> T jsonFileToObject(Path filename, Class<T> tClass) {
         try {
             return jsonbContext.unmarshall(new String(Files.readAllBytes(filename), StandardCharsets.UTF_8), tClass);

@@ -6,8 +6,10 @@
 package dk.dbc.solrdocstore.connector;
 
 import dk.dbc.httpclient.FailSafeHttpClient;
+import dk.dbc.httpclient.HttpGet;
 import dk.dbc.httpclient.HttpPost;
 import dk.dbc.invariant.InvariantUtil;
+import dk.dbc.solrdocstore.connector.model.ExistenceResponse;
 import dk.dbc.solrdocstore.connector.model.HoldingsItems;
 import dk.dbc.solrdocstore.connector.model.Status;
 import net.jodah.failsafe.RetryPolicy;
@@ -72,6 +74,31 @@ public class SolrDocStoreConnector {
             return status;
         } catch (ProcessingException e) {
             throw new SolrDocStoreConnectorException("Failed to complete setHoldings operation", e);
+        }
+    }
+
+    /**
+     * Tests if an agency has a 'live' holding for a bibliographic item
+     * @param agencyId agency ID
+     * @param bibliographicRecordId ID of bibliographic record
+     * @return true if a holding exists, otherwise false
+     * @throws SolrDocStoreConnectorException on failure to complete operation
+     * @throws SolrDocStoreConnectorUnexpectedStatusCodeException when response status code differs from 200 OK
+     */
+    public boolean holdingExists(int agencyId, String bibliographicRecordId) throws SolrDocStoreConnectorException {
+        try {
+            final Response response = new HttpGet(failSafeHttpClient)
+                    .withBaseUrl(baseUrl)
+                    .withPathElements("api", "exists", "holdingsitem", String.format("%d:%s", agencyId, bibliographicRecordId))
+                    .execute();
+            verifyResponseStatus("holdingsExists", response, Response.Status.OK, ExistenceResponse.class);
+            final ExistenceResponse existenceResponse = readResponseEntity(response, ExistenceResponse.class);
+            if (existenceResponse == null) {
+                throw new SolrDocStoreConnectorException("holdingExists operation returned null valued response");
+            }
+            return existenceResponse.exists();
+        } catch (ProcessingException e) {
+            throw new SolrDocStoreConnectorException("Failed to complete holdingExists operation", e);
         }
     }
 

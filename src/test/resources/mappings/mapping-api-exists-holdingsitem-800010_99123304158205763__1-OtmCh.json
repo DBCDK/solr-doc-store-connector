@@ -1,0 +1,17 @@
+{
+  "id" : "bcd2f57f-0ae3-365e-bb3d-ac12415636fd",
+  "request" : {
+    "url" : "/api/exists/holdingsitem/800010:99123304158205763__1",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "bodyFileName" : "body-api-exists-holdingsitem-800010_99123304158205763__1-OtmCh.json",
+    "headers" : {
+      "Server" : "Payara Micro #badassfish",
+      "Content-Type" : "application/json",
+      "X-Frame-Options" : "SAMEORIGIN"
+    }
+  },
+  "uuid" : "bcd2f57f-0ae3-365e-bb3d-ac12415636fd"
+}

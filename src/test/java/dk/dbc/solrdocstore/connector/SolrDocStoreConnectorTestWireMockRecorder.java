@@ -22,11 +22,18 @@ public class SolrDocStoreConnectorTestWireMockRecorder {
                 "http://localhost:8080", SolrDocStoreConnectorTest.NO_RETRY_POLICY);
         final SolrDocStoreConnectorTest solrDocStoreConnectorTest = new SolrDocStoreConnectorTest();
         recordRequestsForSetHoldings(solrDocStoreConnectorTest);
+        recordRequestsForHoldingExists(solrDocStoreConnectorTest);
     }
 
     private static void recordRequestsForSetHoldings(SolrDocStoreConnectorTest solrDocStoreConnectorTest)
             throws SolrDocStoreConnectorException {
         solrDocStoreConnectorTest.setHoldings_ok();
         solrDocStoreConnectorTest.setHoldings_fail();
+    }
+
+    private static void recordRequestsForHoldingExists(SolrDocStoreConnectorTest solrDocStoreConnectorTest)
+            throws SolrDocStoreConnectorException {
+        solrDocStoreConnectorTest.holdingExists_true();
+        solrDocStoreConnectorTest.holdingExists_false();
     }
 }
