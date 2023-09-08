@@ -12,13 +12,13 @@ import dk.dbc.invariant.InvariantUtil;
 import dk.dbc.solrdocstore.connector.model.ExistenceResponse;
 import dk.dbc.solrdocstore.connector.model.HoldingsItems;
 import dk.dbc.solrdocstore.connector.model.Status;
+import jakarta.ws.rs.ProcessingException;
+import jakarta.ws.rs.client.Client;
+import jakarta.ws.rs.core.Response;
 import net.jodah.failsafe.RetryPolicy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.ws.rs.ProcessingException;
-import javax.ws.rs.client.Client;
-import javax.ws.rs.core.Response;
 import java.time.Duration;
 
 public class SolrDocStoreConnector {
